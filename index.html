@@ -3,153 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drew Williams - BSIS ePortfolio</title>
+  <title>Drew Williams - BSIS ePortfolio & Software Engineer</title>
   <style>
-    :root {
-      --primary: #1e3a8a;
-      --bg: #f5f7fa;
-      --card-bg: #ffffff;
-      --text: #333333;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
+      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background: #f5f7fa;
+      color: #333;
     }
-
     header {
-      background: var(--primary);
-      color: #ffffff;
-      padding: 1.5rem 1rem 2.5rem;
+      background: #1e3a8a;
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
-
     header h1 {
-      margin: 0.25rem 0;
-      font-size: 2.2rem;
-    }
-
-    header p {
       margin: 0;
-      font-size: 1rem;
-      opacity: 0.9;
+      font-size: 2.5rem;
     }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav a {
-      color: #e5e7eb;
-      text-decoration: none;
-      margin: 0 0.75rem;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     main {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 0 1rem 3rem;
+      padding: 0 1rem 4rem;
     }
-
     section {
       margin-bottom: 2.5rem;
-      background: var(--card-bg);
-      padding: 1.5rem 1.75rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
     }
-
     h2 {
-      margin-top: 0;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #1e3a8a;
+      padding-bottom: 0.5rem;
       margin-bottom: 1rem;
-      color: var(--primary);
-      font-size: 1.4rem;
+      color: #1e3a8a;
     }
-
     h3 {
-      margin-bottom: 0.2rem;
-      color: #111827;
-      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1e3a8a;
     }
-
-    .meta {
-      font-size: 0.85rem;
-      color: #6b7280;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
       margin-bottom: 0.75rem;
     }
-
-    .artifact {
-      margin-bottom: 1.75rem;
-      border-left: 3px solid #e5e7eb;
-      padding-left: 1rem;
-    }
-
-    .artifact:last-child {
-      margin-bottom: 0;
-    }
-
-    .artifact-links a {
-      display: inline-block;
-      margin-right: 1rem;
-      font-size: 0.9rem;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .artifact-links a:hover {
-      text-decoration: underline;
-    }
-
-    ul {
-      padding-left: 1.1rem;
-    }
-
     a {
-      color: var(--primary);
+      color: #1e3a8a;
+      text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
+    }
+    .tagline {
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    .artifact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .artifact-item {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .artifact-meta {
+      max-width: 600px;
+    }
+
+    .artifact-meta p {
+      margin: 0.1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .artifact-title {
+      font-weight: bold;
+    }
+
+    .artifact-btn {
+      padding: 0.5rem 0.9rem;
+      border-radius: 4px;
+      border: none;
+      background: #1e3a8a;
+      color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .artifact-btn:hover {
+      background: #132047;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #e2e8f0;
+      font-size: 0.75rem;
+      margin-right: 0.25rem;
+    }
+
+    .link-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+    .modal.open {
+      display: flex;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 8px;
+      max-width: 1000px;
+      width: 100%;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .modal-header small {
+      font-size: 0.8rem;
+      color: #555;
+    }
+    .close-modal {
+      border: none;
+      background: transparent;
+      font-size: 1.3rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-body {
+      flex: 1;
+      min-height: 0;
+    }
+    .modal-body object {
+      border: none;
+      width: 100%;
+      height: 100%;
+      min-height: 70vh;
+    }
+    .modal-footer {
+      padding: 0.5rem 1rem 0.85rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      text-align: right;
     }
 
     footer {
       text-align: center;
-      padding: 1rem 0 2rem;
-      font-size: 0.85rem;
-      color: #6b7280;
+      padding: 1rem;
+      background: #e2e8f0;
+      font-size: 0.9rem;
+      margin-top: 2rem;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 600px) {
       header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+      .artifact-item {
+        align-items: flex-start;
       }
-      nav a {
-        margin: 0 0.3rem;
+      .artifact-btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -157,155 +216,335 @@
 <body>
   <header>
     <h1>Drew Williams</h1>
-    <p>BS in Information Science - Full Stack Software Engineer</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#artifacts">Capstone Artifacts</a>
-      <a href="#projects">Other Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <p class="tagline">
+      BS in Information Science, University of South Florida · Full Stack Software Engineer
+    </p>
+    <p>
+      This site serves both as my professional portfolio and as my LIS 4934 BSIS Senior Capstone
+      ePortfolio, collecting key assignments and reflections from the program.
+    </p>
   </header>
 
   <main>
-    <!-- ABOUT / BIO -->
-    <section id="about">
-      <h2>Professional Biography</h2>
+    <!-- Professional summary kept from your original page -->
+    <section>
+      <h2>About Me</h2>
       <p>
-        My journey into the field of information science has been shaped by both school and work, and the two
-        have blended together in ways that define how I approach problems. I am finishing my Bachelor of Science
-        in Information Science at the University of South Florida, with a concentration in web design technologies,
-        and I expect to graduate in December 2025. Throughout this program I have built skills in web development,
-        information architecture, data security, and user experience.
+        I am a full stack developer with experience designing and deploying scalable web
+        applications using the MERN stack, Django, and cloud platforms. I enjoy building secure APIs,
+        dynamic interfaces, and information systems that solve real problems for users.
       </p>
       <p>
-        At the same time I have been working as a full stack software engineer, which has allowed me to apply
-        classroom learning on real projects. Courses such as Introduction to Information Science (LIS 3261),
-        IT Concepts for Information Professionals (LIS 3353), and Information Policy and Ethics (LIS 4414) helped
-        me understand how information moves through organizations and highlighted the ethical responsibilities
-        that come with it. Design focused classes, including WWW Page Design and Management (LIS 3361),
-        Interaction Design (LIS 3352), and Information Architecture (LIS 3783), pushed me to think about usability
-        and accessibility in every project.
-      </p>
-      <p>
-        Professionally, I work at ActionAtlas as a full stack developer using React, Node.js, and MongoDB to deliver
-        cross functional features for a project management platform. Earlier freelance and contract work exposed me
-        to Django, Salesforce, Shopify, and other tools. These experiences reinforced Agile practices, version
-        control, secure deployment, and collaboration across roles.
-      </p>
-      <p>
-        Looking ahead, I am interested in roles such as full stack engineer, solutions architect, or project lead,
-        with ongoing learning in cloud infrastructure and security. Above all, I want to use my skills to create
-        technology that is ethical, accessible, and genuinely useful to the people who rely on it.
+        I am completing my Bachelor of Science in Information Science at the University of South Florida,
+        with coursework that connects web development, information policy, security, and user experience.
       </p>
     </section>
 
-    <!-- CAPSTONE ARTIFACTS -->
-    <section id="artifacts">
-      <h2>Capstone Course Artifacts</h2>
+    <section>
+      <h2>Enhanced Biography and Career Goals</h2>
+      <p>
+        My journey into information science has been shaped by both school and work, and the two have
+        blended together in ways that define how I approach problems today. I am finishing my BS in
+        Information Science at USF with a focus on web design technologies, while working as a full
+        stack software engineer. Having that mix of academic learning and professional experience has
+        helped me grow as a developer and as a problem solver.
+      </p>
+      <p>
+        Early courses such as Introduction to Information Science and IT Concepts for Information Professionals
+        gave me a foundation for understanding how information moves through organizations and systems,
+        including ethics and accessibility. Later classes in interaction design, information architecture,
+        and information policy pushed me to think about usability, structure, and the social impact of
+        technology, not just the code behind it.
+      </p>
+      <p>
+        Professionally, I have applied these ideas by building features for a project management platform at
+        ActionAtlas using React, Node.js, and MongoDB, and by working on custom applications as a self-employed
+        engineer. Looking ahead, I hope to continue in roles that blend development with leadership, such as
+        full stack engineer, solutions architect, or project lead, while staying grounded in ethical and
+        human-centered design.
+      </p>
+    </section>
 
-      <div class="artifact">
-        <h3>Project Management Plan</h3>
-        <div class="meta">LIS 4934 - Submitted October 5, 2025</div>
-        <p>
-          A project management plan for designing a university software-tracking database, structured around
-          Baars' six project management phases. The essay focuses on realistic scope, stakeholder engagement,
-          and long term sustainability for an IT department in higher education.
-        </p>
-        <div class="artifact-links">
-          <a href="project-management-plan.html">View online</a>
-          <a href="artifacts/project-management-plan.pdf" target="_blank">Download PDF</a>
+    <section>
+      <h2>BSIS Capstone ePortfolio Artifacts</h2>
+      <p>
+        The artifacts below come from core assignments in this course and related work. Each one connects
+        information science concepts to real or hypothetical professional scenarios.
+      </p>
+
+      <div class="artifact-list">
+        <div class="artifact-item">
+          <div class="artifact-meta">
+            <div class="artifact-title">Project Management Plan</div>
+            <p>
+              <span class="pill">LIS 4365 / LIS 4934</span>
+              Implementation plan for a software-tracking database at a university, using Baars'
+              six project management phases.
+            </p>
+          </div>
+          <button class="artifact-btn" data-modal="modal-pm-plan">
+            View PDF
+          </button>
         </div>
-      </div>
 
-      <div class="artifact">
-        <h3>Event Report - Project Management Careers in 2025</h3>
-        <div class="meta">LIS 4934 - Submitted October 20, 2025</div>
-        <p>
-          Reflection on the webinar <em>Project Management Careers in 2025 - Navigating Job Market Trends</em>.
-          I connect the speakers' points about outcome focused storytelling, stakeholder alignment, and AI as a
-          support tool to my own career goals as a developer who is moving toward project and product leadership.
-        </p>
-        <div class="artifact-links">
-          <a href="project-management-event-report.html">View online</a>
-          <a href="artifacts/project-management-careers-event-report.pdf" target="_blank">Download PDF</a>
+        <div class="artifact-item">
+          <div class="artifact-meta">
+            <div class="artifact-title">Project Management Careers in 2025 – Event Report</div>
+            <p>
+              <span class="pill">Professional Development</span>
+              Reflection on a webinar about global project management career trends and how they
+              connect to my path as a developer moving into leadership.
+            </p>
+          </div>
+          <button class="artifact-btn" data-modal="modal-pm-event">
+            View PDF
+          </button>
         </div>
-      </div>
 
-      <div class="artifact">
-        <h3>Ethical Case Study Analysis - The Internet of Things</h3>
-        <div class="meta">LIS 4934 - Submitted November 2, 2025</div>
-        <p>
-          An ethical analysis of the Internet of Things that draws on work by Karsten, Singer and Perry on
-          wearables, Coleman on the Internet of Bodies, and a TED-Ed video from FwThinking. The essay examines
-          privacy, surveillance, consent, and data ownership, and applies critical thinking to evaluate how
-          information professionals can balance innovation with human dignity.
-        </p>
-        <div class="artifact-links">
-          <a href="ethical-case-study-iot.html">View online</a>
-          <a href="artifacts/ethical-case-study-iot.pdf" target="_blank">Download PDF</a>
+        <div class="artifact-item">
+          <div class="artifact-meta">
+            <div class="artifact-title">Ethical Case Study Analysis – The Internet of Things</div>
+            <p>
+              <span class="pill">LIS 4414 / Ethics</span>
+              Critical analysis of the Internet of Things and Internet of Bodies, focusing on
+              privacy, surveillance, and data ownership.
+            </p>
+          </div>
+          <button class="artifact-btn" data-modal="modal-iot">
+            View PDF
+          </button>
         </div>
-      </div>
 
-      <div class="artifact">
-        <h3>Agentic AI and Cybersecurity - Anthropic Hacking Incident</h3>
-        <div class="meta">LIS 4934 - Submitted November 16, 2025</div>
-        <p>
-          Policy focused analysis of an Axios report on Chinese hackers using Anthropic's Claude Code agent to
-          automate cyberattacks. The essay applies Pasek's information policy framework, traces related legislation
-          on Congress.gov, and discusses implications for systemic risk, accountability, and the role of information
-          professionals in securing agentic AI systems.
-        </p>
-        <div class="artifact-links">
-          <a href="agentic-ai-cybersecurity.html">View online</a>
-          <a href="artifacts/agentic-ai-cybersecurity.pdf" target="_blank">Download PDF</a>
+        <div class="artifact-item">
+          <div class="artifact-meta">
+            <div class="artifact-title">Agentic AI and Cybersecurity – Anthropic Hacking Incident</div>
+            <p>
+              <span class="pill">Information Policy</span>
+              Policy analysis of a recent AI-enabled cyberattack, connecting ACM guidance,
+              congressional activity, and information policy concepts.
+            </p>
+          </div>
+          <button class="artifact-btn" data-modal="modal-agentic-ai">
+            View PDF
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- OTHER PROJECTS -->
-    <section id="projects">
-      <h2>Additional Projects</h2>
-      <p>Below are additional examples of my work beyond this capstone course.</p>
+    <section>
+      <h2>Experience</h2>
       <ul>
         <li>
-          <strong>Professional Portfolio Website:</strong>
-          <a href="https://dwawilliamsghb.github.io/my-portfolio/" target="_blank">
-            dwawilliamsghb.github.io/my-portfolio
+          <strong>Full Stack Developer – ActionAtlas</strong> (2024 to present)
+          <br />
+          Build full stack features with React, Redux, Node.js, and MongoDB. Implement secure AWS S3
+          storage, role-based access, and project management workflows in an Agile environment.
+        </li>
+        <li>
+          <strong>Software Engineer – Self-Employed</strong> (2020 to 2024)
+          <br />
+          Developed custom web applications with the MERN stack and Django. Integrated Shopify,
+          Magento, Salesforce, and deployed apps on AWS and Azure for small businesses.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>BS in Information Science</strong>, University of South Florida (expected 2025)</li>
+        <li><strong>Software Engineering Immersive</strong>, General Assembly (2022–2023)</li>
+        <li><strong>AA in Information Technology</strong>, Hillsborough Community College (2020–2022)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <p>JavaScript, React, Node.js, MongoDB, Django, REST APIs, AWS, Git, Agile development</p>
+    </section>
+
+    <section>
+      <h2>Additional Projects and Links</h2>
+      <ul class="link-list">
+        <li>
+          <strong>Capstone ePortfolio (this site)</strong> – Built with HTML and CSS and hosted on GitHub Pages.
+        </li>
+        <li>
+          <a href="https://dwawilliamsghb.github.io/my-portfolio/" target="_blank" rel="noopener">
+            Professional Portfolio
           </a>
         </li>
         <li>
-          <strong>Web Design Project (LIS 3361):</strong>
-          <a href="https://drew-williams.infinityfree.me/?i=1" target="_blank">
-            drew-williams.infinityfree.me
+          <a href="https://drew-williams.infinityfree.me/?i=1" target="_blank" rel="noopener">
+            Web Design Project (InfinityFree deployment)
           </a>
         </li>
       </ul>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
+    <section>
       <h2>Contact</h2>
-      <p>If you would like to learn more about my work or discuss opportunities, you can reach me here:</p>
-      <ul>
-        <li>Email: <a href="mailto:drewyw2012@gmail.com">drewyw2012@gmail.com</a></li>
-        <li>
-          LinkedIn:
-          <a href="https://www.linkedin.com/in/dwawilliamslnk-wagmi23-pj77" target="_blank">
-            linkedin.com/in/dwawilliamslnk-wagmi23-pj77
-          </a>
-        </li>
-        <li>
-          GitHub:
-          <a href="https://github.com/dwawilliamsghb" target="_blank">
-            github.com/dwawilliamsghb
-          </a>
-        </li>
-      </ul>
+      <p>
+        <a href="mailto:drewyw2012@gmail.com">drewyw2012@gmail.com</a> |
+        <a href="https://www.linkedin.com/in/dwawilliamslnk-wagmi23-pj77" target="_blank" rel="noopener">LinkedIn</a> |
+        <a href="https://github.com/dwawilliamsghb" target="_blank" rel="noopener">GitHub</a>
+      </p>
     </section>
   </main>
 
   <footer>
-    © 2025 Drew Williams - BSIS Senior Capstone ePortfolio - Hosted on GitHub Pages
+    © 2025 Drew Williams | BSIS Senior Capstone ePortfolio · Hosted on GitHub Pages
   </footer>
+
+  <!-- Modals -->
+  <div class="modal" id="modal-pm-plan" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3>Project Management Plan</h3>
+          <small>Click the X or press Escape to close.</small>
+        </div>
+        <button class="close-modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <object data="artifacts/project-management-plan.pdf" type="application/pdf">
+          <p>
+            Your browser cannot display PDFs.
+            <a href="artifacts/project-management-plan.pdf" target="_blank" rel="noopener">
+              Open the file in a new tab
+            </a>.
+          </p>
+        </object>
+      </div>
+      <div class="modal-footer">
+        <a href="artifacts/project-management-plan.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-pm-event" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3>Project Management Careers in 2025 – Event Report</h3>
+          <small>Click the X or press Escape to close.</small>
+        </div>
+        <button class="close-modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <object data="artifacts/project-management-careers-event-report.pdf" type="application/pdf">
+          <p>
+            Your browser cannot display PDFs.
+            <a href="artifacts/project-management-careers-event-report.pdf" target="_blank" rel="noopener">
+              Open the file in a new tab
+            </a>.
+          </p>
+        </object>
+      </div>
+      <div class="modal-footer">
+        <a href="artifacts/project-management-careers-event-report.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-iot" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3>Ethical Case Study Analysis – The Internet of Things</h3>
+          <small>Click the X or press Escape to close.</small>
+        </div>
+        <button class="close-modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <object data="artifacts/ethical-case-study-iot.pdf" type="application/pdf">
+          <p>
+            Your browser cannot display PDFs.
+            <a href="artifacts/ethical-case-study-iot.pdf" target="_blank" rel="noopener">
+              Open the file in a new tab
+            </a>.
+          </p>
+        </object>
+      </div>
+      <div class="modal-footer">
+        <a href="artifacts/ethical-case-study-iot.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-agentic-ai" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3>Agentic AI and Cybersecurity – Policy Implications</h3>
+          <small>Click the X or press Escape to close.</small>
+        </div>
+        <button class="close-modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <object data="artifacts/agentic-ai-cybersecurity.pdf" type="application/pdf">
+          <p>
+            Your browser cannot display PDFs.
+            <a href="artifacts/agentic-ai-cybersecurity.pdf" target="_blank" rel="noopener">
+              Open the file in a new tab
+            </a>.
+          </p>
+        </object>
+      </div>
+      <div class="modal-footer">
+        <a href="artifacts/agentic-ai-cybersecurity.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const openButtons = document.querySelectorAll(".artifact-btn");
+      const modals = document.querySelectorAll(".modal");
+
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+        }
+      }
+
+      function closeModal(modal) {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      openButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-modal");
+          openModal(id);
+        });
+      });
+
+      modals.forEach((modal) => {
+        modal.addEventListener("click", (event) => {
+          if (event.target.classList.contains("modal")) {
+            closeModal(modal);
+          }
+        });
+
+        const closeBtn = modal.querySelector(".close-modal");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => closeModal(modal));
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          modals.forEach((modal) => {
+            if (modal.classList.contains("open")) {
+              closeModal(modal);
+            }
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
